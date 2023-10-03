@@ -1,29 +1,30 @@
 #include "lists.h"
 
 /**
- * insert_node - The Fun Definition.
- * @ras: Refer To
- * @rakam: Refer To
- * Return: if error null or a new pointer
+ * insert_node - Inserts a number into a sorted singly-linked list.
+ * @head: A pointer the head of the linked list.
+ * @number: The number to insert.
+ *
+ * Return: If the function fails - NULL.
+ * Otherwise - a pointer to the new node.
  */
-
-listint_t *insert_node(listint_t **ras, int rakam)
+listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *node = *ras, *new;
+	listint_t *node = *head, *new;
 
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)
 		return (NULL);
-	new->n = rakam;
+	new->n = number;
 
-	if (node == NULL || node->n >= rakam)
+	if (node == NULL || node->n >= number)
 	{
 		new->next = node;
-		*ras = new;
+		*head = new;
 		return (new);
 	}
 
-	while (node && node->next && node->next->n < rakam)
+	while (node && node->next && node->next->n < number)
 		node = node->next;
 
 	new->next = node->next;
