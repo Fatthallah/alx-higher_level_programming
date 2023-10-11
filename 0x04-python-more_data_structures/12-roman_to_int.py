@@ -1,41 +1,29 @@
 #!/usr/bin/python3
 def to_subtract(list_num):
-    to_sub = 0
-    max_list = max(list_num)
-
+    t_s = 0
+    mx_lst = max(list_num)
     for n in list_num:
-        if max_list > n:
-            to_sub += n
-
-    return (max_list - to_sub)
-
-
+        if mx_lst > n:
+            t_s = t_s + n
+    return (mx_lst - t_s)
 def roman_to_int(roman_string):
     if not roman_string:
         return 0
-
     if not isinstance(roman_string, str):
         return 0
-
-    rom_n = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-    list_keys = list(rom_n.keys())
-
-    num = 0
-    last_rom = 0
-    list_num = [0]
-
-    for ch in roman_string:
-        for r_num in list_keys:
-            if r_num == ch:
-                if rom_n.get(ch) <= last_rom:
-                    num += to_subtract(list_num)
-                    list_num = [rom_n.get(ch)]
+    rooom_n = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    lst_kys = list(rooom_n.keys())
+    x = 0
+    lst_rm = 0
+    lst_nm = [0]
+    for ss in roman_string:
+        for rrr_n in lst_kys:
+            if rrr_n == ss:
+                if rooom_n.get(ss) <= lst_rm:
+                    x += to_subtract(lst_nm)
+                    lst_nm = [rooom_n.get(ss)]
                 else:
-                    list_num.append(rom_n.get(ch))
-
-                last_rom = rom_n.get(ch)
-
-    num += to_subtract(list_num)
-
-    return (num)
-
+                    lst_nm.append(rooom_n.get(ss))
+                lst_rm = rooom_n.get(ss)
+    x += to_subtract(lst_nm)
+    return (x)
