@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """x"""
 import sys
+
 def init_board(n):
     """x"""
     board = []
@@ -23,32 +24,40 @@ def get_solution(board):
     return (solution)
 def xout(board, row, col):
     """x"""
-     for c in range(col + 1, len(board)):
+    # cm
+    for c in range(col + 1, len(board)):
         board[row][c] = "x"
+    # cm
     for c in range(col - 1, -1, -1):
         board[row][c] = "x"
+    # cm
     for r in range(row + 1, len(board)):
         board[r][col] = "x"
+    # cm
     for r in range(row - 1, -1, -1):
         board[r][col] = "x"
+    # cm
     c = col + 1
     for r in range(row + 1, len(board)):
         if c >= len(board):
             break
         board[r][c] = "x"
         c += 1
+    # cm
     c = col - 1
     for r in range(row - 1, -1, -1):
         if c < 0:
             break
         board[r][c]
         c -= 1
+    # cm
     c = col + 1
     for r in range(row - 1, -1, -1):
         if c >= len(board):
             break
         board[r][c] = "x"
         c += 1
+    # cm
     c = col - 1
     for r in range(row + 1, len(board)):
         if c < 0:
@@ -60,12 +69,15 @@ def recursive_solve(board, row, queens, solutions):
     if queens == len(board):
         solutions.append(get_solution(board))
         return (solutions)
+
     for c in range(len(board)):
         if board[row][c] == " ":
             tmp_board = board_deepcopy(board)
             tmp_board[row][c] = "Q"
             xout(tmp_board, row, c)
-            solutions = recursive_solve(tmp_board, row + 1, queens + 1, solutions)
+            solutions = recursive_solve(tmp_board, row + 1,
+                    queens + 1, solutions)
+
     return (solutions)
 if __name__ == "__main__":
     if len(sys.argv) != 2:
