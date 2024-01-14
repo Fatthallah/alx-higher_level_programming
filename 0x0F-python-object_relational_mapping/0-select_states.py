@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-"""  The Comment I've to write """
+""" The Comment I've to write """
 import MySQLdb
 import sys
-
 
 if __name__ == "__main__":
     db = MySQLdb.connect(host="localhost", user=sys.argv[1],

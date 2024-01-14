@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""  The Comment I've to write """
+""" The Comment I've to write """
 import MySQLdb
 import sys
 
