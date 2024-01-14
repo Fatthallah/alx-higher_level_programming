@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" The Comment
+""" prints the State object with the name passed as argument from the database
 """
 import sys
 from relationship_state import Base, State
