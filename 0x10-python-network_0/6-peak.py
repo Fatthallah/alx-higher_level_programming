@@ -9,7 +9,7 @@ def find_peak(list_of_integers):
 
 
     list_ = list_of_integers
-    # if there is no list of integers return None
+    # The Comment
     if list_ == []:
         return None
     length = len(list_)
